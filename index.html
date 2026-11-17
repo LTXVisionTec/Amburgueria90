@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101014">
+<meta name="description" content="NOIR Burger — hambúrgueres artesanais, sabor intenso e experiência premium em Luanda.">
+<title>NOIR Burger — Simplesmente extraordinário</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4f1e9;--white:#fbfaf6;--ink:#191a17;--soft:#77776e;--line:#dedbd1;--accent:#8a5b3d;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1200px,90%);margin:auto}
+.topline{height:32px;background:var(--ink);color:#e9e5dc;display:flex;align-items:center;justify-content:center;font-size:9px;letter-spacing:1.8px;text-transform:uppercase}
+header{position:sticky;top:0;z-index:20;background:#f4f1e9ed;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}.nav{height:82px;display:flex;align-items:center;justify-content:space-between}.brand{font:700 27px var(--sans);letter-spacing:5px}.brand span{display:block;font-size:7px;letter-spacing:4px;font-weight:500;text-align:center;margin-top:2px;color:var(--soft)}.links{display:flex;gap:32px;font-size:10px;letter-spacing:1.2px;text-transform:uppercase}.links a{color:#55564f}.links a:hover{color:var(--accent)}.nav-right{display:flex;align-items:center;gap:14px}.cart-button{background:transparent;border:1px solid var(--ink);padding:12px 15px;font-size:9px;letter-spacing:1px;text-transform:uppercase;cursor:pointer}.cart-button strong{margin-left:8px;color:var(--accent)}.menu-toggle{display:none}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:22px;background:var(--ink);color:var(--white);padding:16px 21px;border:1px solid var(--ink);font-size:9px;letter-spacing:1.3px;text-transform:uppercase;font-weight:600;transition:.2s}.button:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-2px)}.button.outline{background:transparent;color:var(--ink)}.button.outline:hover{background:var(--ink);color:var(--white)}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:620px;border-bottom:1px solid var(--line)}.hero-copy{padding:100px 8% 90px max(5vw,calc((100vw - 1200px)/2));display:flex;flex-direction:column;justify-content:center}.kicker{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700}.hero h1{font:500 clamp(58px,7vw,91px)/.99 var(--serif);letter-spacing:-2.5px;margin:24px 0}.hero h1 em{font-weight:500;color:var(--accent)}.hero p{font-size:13px;line-height:2;color:var(--soft);max-width:410px;margin:0}.hero-actions{display:flex;gap:24px;align-items:center;margin-top:32px}.underlink{font-size:9px;letter-spacing:1.2px;text-transform:uppercase;border-bottom:1px solid var(--accent);padding-bottom:7px}.hero-image{min-height:500px;position:relative;background:#d6d0c4}.hero-image img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;filter:saturate(.75)}.image-note{position:absolute;bottom:25px;left:25px;background:var(--paper);padding:12px 15px;font:italic 13px var(--serif)}
+.intro{padding:83px 0;border-bottom:1px solid var(--line)}.intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:10%;align-items:start}.intro h2,.heading{font:500 clamp(36px,4vw,54px)/1.12 var(--serif);letter-spacing:-1px;margin:14px 0}.intro p{font-size:13px;line-height:2.05;color:var(--soft);max-width:610px;margin:0}
+.section{padding:95px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:34px}.section-head p{font-size:12px;line-height:1.8;color:var(--soft);max-width:330px;margin:0}.heading{margin:12px 0 0}.filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 23px}.filter{border:1px solid var(--line);background:transparent;padding:10px 15px;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#55564f;cursor:pointer}.filter.active,.filter:hover{background:var(--ink);border-color:var(--ink);color:var(--white)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:var(--white);border:1px solid #e8e5dc;transition:.2s}.product:hover{transform:translateY(-4px);box-shadow:0 12px 30px #21190e0c}.product[hidden]{display:none}.product-photo{height:245px;overflow:hidden;background:#ded9cf}.product-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;filter:saturate(.82)}.product:hover .product-photo img{transform:scale(1.04)}.product-info{padding:20px}.product-meta{display:flex;justify-content:space-between;gap:10px;align-items:start}.product h3{font:500 22px var(--serif);margin:0}.price{font-size:11px;font-weight:700;color:var(--accent);white-space:nowrap;padding-top:5px}.product p{font-size:11px;line-height:1.8;color:var(--soft);min-height:40px;margin:11px 0 17px}.add{width:100%;background:transparent;border:1px solid var(--line);padding:12px;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;cursor:pointer}.add:hover{background:var(--ink);color:white;border-color:var(--ink)}
+.story{background:#e8e4da}.story-grid{display:grid;grid-template-columns:1fr 1fr;min-height:480px}.story-image{min-height:420px}.story-image img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.72)}.story-copy{padding:75px clamp(35px,7vw,100px);display:flex;flex-direction:column;justify-content:center}.story-copy h2{font:500 clamp(38px,4.5vw,59px)/1.08 var(--serif);margin:18px 0}.story-copy p{font-size:12px;line-height:2;color:var(--soft);max-width:440px}.story-copy .button{align-self:flex-start;margin-top:18px}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:35px;margin-top:48px}.value{border-top:1px solid #c9c4b8;padding-top:18px}.value b{font:italic 20px var(--serif);color:var(--accent)}.value h3{font:500 20px var(--serif);margin:12px 0}.value p{font-size:11px;line-height:1.9;color:var(--soft);margin:0}
+.cta{padding:90px 0;background:var(--ink);color:var(--paper);text-align:center}.cta .kicker{color:#c99b7b}.cta h2{font:500 clamp(42px,6vw,72px)/1.05 var(--serif);margin:20px 0}.cta h2 em{color:#c99b7b}.cta p{font-size:12px;line-height:1.8;color:#c4c0b7}.cta .button{margin-top:20px;background:var(--paper);color:var(--ink);border-color:var(--paper)}.cta .button:hover{background:#c99b7b;border-color:#c99b7b}
+footer{padding:52px 0 22px;background:#eae6dd}.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-bottom:36px}.footer-brand p{max-width:260px;color:var(--soft);font-size:11px;line-height:1.9}.footer-col h4{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin:6px 0 15px}.footer-col a,.footer-col p{display:block;font-size:10px;line-height:2.1;color:#626259;margin:0}.footer-bottom{border-top:1px solid #d3cec3;padding-top:17px;display:flex;justify-content:space-between;gap:15px;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:#888579}
+.toast{position:fixed;right:20px;bottom:20px;z-index:40;background:var(--ink);color:white;padding:15px 19px;font-size:11px;opacity:0;transform:translateY(12px);transition:.2s;pointer-events:none}.toast.show{opacity:1;transform:translateY(0)}
+.drawer-backdrop{position:fixed;inset:0;background:#1119;z-index:50;opacity:0;pointer-events:none;transition:.2s}.drawer-backdrop.open{opacity:1;pointer-events:auto}.drawer{position:absolute;right:0;top:0;height:100%;width:min(430px,100%);background:var(--paper);padding:28px;transform:translateX(100%);transition:.25s;display:flex;flex-direction:column}.drawer-backdrop.open .drawer{transform:translateX(0)}.drawer-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:18px}.drawer-head h3{font:500 26px var(--serif);margin:0}.close{border:0;background:none;font-size:24px;cursor:pointer}.cart-items{flex:1;overflow:auto;padding:15px 0}.cart-row{display:flex;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:12px}.cart-row button{border:0;background:none;color:var(--accent);cursor:pointer}.cart-total{display:flex;justify-content:space-between;padding:18px 0;border-top:1px solid var(--line);font-weight:700}.drawer .button{width:100%;cursor:pointer}
+@media(max-width:850px){.links{gap:16px}.hero{min-height:540px}.hero-copy{padding-left:5%;padding-right:5%}.products{grid-template-columns:repeat(2,1fr)}.story-copy{padding:45px 30px}.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.topline{font-size:7px;letter-spacing:1px}.nav{height:70px}.links{display:none}.brand{font-size:23px}.cart-button{padding:10px;font-size:8px}.hero{grid-template-columns:1fr}.hero-copy{padding:78px 6% 55px}.hero h1{font-size:63px}.hero-image{min-height:320px}.intro{padding:60px 0}.intro-grid{grid-template-columns:1fr;gap:12px}.intro h2{font-size:40px}.section{padding:68px 0}.section-head{display:block}.section-head p{margin-top:14px}.products{grid-template-columns:1fr}.product-photo{height:250px}.story-grid{grid-template-columns:1fr}.story-image{height:290px;min-height:290px}.story-copy{padding:48px 7%}.values{grid-template-columns:1fr;gap:25px}.cta{padding:70px 0}.footer-grid{grid-template-columns:1fr 1fr;gap:25px}.footer-brand{grid-column:1/-1}.footer-bottom{font-size:7px;line-height:1.8;flex-direction:column}}
+
+/* NOIR FUTURE / responsive full-screen experience */
+:root{
+ --paper:#101014;--white:#1b1b22;--ink:#f7f3ec;--soft:#b9b3ad;
+ --line:#39343a;--accent:#ff5a1f;--accent-dark:#ff8a35;
+ --serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;
+ --night:#09090d;--cyan:#ffd166;
+}
+html{scroll-snap-type:y mandatory;scroll-padding-top:114px;scroll-behavior:smooth}
+body{background:var(--paper);overflow-x:hidden}
+.topline{height:32px;background:var(--night);color:var(--accent);letter-spacing:2.2px;position:relative;overflow:hidden}
+.topline:after{content:"";position:absolute;left:-35%;bottom:0;width:35%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:scanline 5s linear infinite}
+@keyframes scanline{to{left:110%}}
+header{height:82px;background:#f1f0e8ed;border-color:#b8ed5550}
+.nav{height:82px}
+.brand{letter-spacing:5px}.brand span{color:#657568}
+.links a{transition:color .2s}.links a:hover{color:var(--accent-dark)}
+.button{background:var(--night);border-color:var(--night);box-shadow:0 0 0 0 #b8ed5500;transition:transform .25s,box-shadow .25s,background .25s}
+.button:hover{background:#26372b;border-color:var(--accent);box-shadow:0 0 22px #b8ed5533;transform:translateY(-2px)}
+.kicker{color:#658b2f;letter-spacing:2.5px}
+.panel{height:calc(100svh - 114px);min-height:500px;scroll-snap-align:start;scroll-snap-stop:always;scroll-margin-top:114px;overflow-y:auto;overscroll-behavior:contain;position:relative}
+.panel::-webkit-scrollbar{width:5px}.panel::-webkit-scrollbar-thumb{background:#b8ed55;border-radius:10px}
+.hero{min-height:500px;border-bottom:1px solid var(--line);background:linear-gradient(135deg,#f1f0e8 0%,#e7ebe0 100%)}
+.hero:before,.intro:before,.menu-panel:before,.quality-panel:before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(#71836c18 1px,transparent 1px),linear-gradient(90deg,#71836c18 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(90deg,#000,transparent 78%)}
+.hero-copy{position:relative;z-index:1;padding-top:35px;padding-bottom:35px}
+.hero h1{font-size:clamp(52px,6.6vw,88px);letter-spacing:-3px}
+.hero h1 em{color:#648c31;text-shadow:0 0 24px #b8ed5540}
+.hero p{color:#5f6b61}
+.hero-image{min-height:100%;background:#202c25}
+.hero-image:after{content:"";position:absolute;inset:0;border:1px solid #b8ed5570;pointer-events:none}
+.hero-image img{filter:saturate(.72) contrast(1.06)}
+.image-note{background:#111a14;color:#dfe9d9;border:1px solid #b8ed5570}
+.intro{padding:35px 0;display:flex;align-items:center;background:var(--paper)}
+.intro-grid{width:min(1200px,90%);margin:auto;position:relative;z-index:1}
+.intro h2,.heading{font-size:clamp(34px,4.4vw,58px)}
+.intro p{color:#5f6b61}
+.section{padding:28px 0}
+.menu-panel{background:#e9ede4}
+.menu-panel .wrap,.quality-panel .wrap{position:relative;z-index:1}
+.section-head{margin-bottom:18px}
+.section-head p{color:#657168}
+.filters{margin-bottom:14px}
+.filter{border-color:#bdc8b8;border-radius:2px}
+.filter.active,.filter:hover{background:var(--night);border-color:var(--accent);color:var(--accent)}
+.products{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.product{display:grid;grid-template-columns:38% 1fr;align-items:stretch;background:#f8faf4;border:1px solid #d5ddcf;min-height:0}
+.product-photo{height:100%;min-height:130px}
+.product-photo img{filter:saturate(.7) contrast(1.04)}
+.product-info{padding:13px;display:flex;flex-direction:column;justify-content:center}
+.product h3{font-size:clamp(15px,1.5vw,21px)}
+.price{color:#648c31;font-size:10px}
+.product p{font-size:10px;line-height:1.55;min-height:0;margin:7px 0 10px}
+.add{padding:9px 7px;font-size:8px;border-color:#cbd5c5}
+.add:hover{background:var(--night);border-color:var(--accent);color:var(--accent)}
+.story{background:var(--night);color:#f1f0e8}
+.story-grid{height:100%;min-height:0}
+.story-image{min-height:100%;position:relative}
+.story-image:after{content:"";position:absolute;inset:0;border:1px solid #b8ed5550}
+.story-copy{padding:35px clamp(28px,6vw,85px)}
+.story-copy h2{font-size:clamp(36px,4.6vw,60px)}
+.story-copy p{color:#aab7aa}
+.story-copy .kicker{color:var(--accent)}
+.story-copy .button{background:var(--accent);color:var(--night);border-color:var(--accent)}
+.quality-panel{display:flex;align-items:center;background:#f1f0e8}
+.quality-panel .values{margin-top:34px}
+.value{border-top:1px solid #aebca9}
+.value b{color:#6d9630}
+.value h3{font-size:clamp(17px,1.7vw,22px)}
+.value p{color:#657168}
+.cta{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 45%,#26372c 0%,#101713 58%);color:#f1f0e8;overflow:hidden}
+.cta:before{content:"";position:absolute;inset:0;opacity:.17;background-image:linear-gradient(#b8ed5525 1px,transparent 1px),linear-gradient(90deg,#b8ed5525 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000,transparent 72%)}
+.cta .wrap{position:relative;z-index:1}
+.cta .kicker{color:var(--accent)}
+.cta h2 em{color:var(--accent)}
+.cta .button{background:var(--accent);border-color:var(--accent);color:var(--night)}
+.cta .button:hover{background:#d4ff7b}
+footer{height:calc(100svh - 114px);min-height:500px;display:flex;align-items:center;background:#e6eae1;padding:25px 0 18px}
+.footer-grid{padding-bottom:25px}
+.footer-col h4{color:#648c31}
+.footer-bottom{border-color:#c3cec0}
+.drawer{background:#f1f0e8}.drawer .button{background:var(--night);color:var(--accent)}
+.toast{background:var(--accent);color:var(--night);border:1px solid #e0ffab;box-shadow:0 0 24px #b8ed5540}
+@media(max-width:1000px){
+ .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .product{grid-template-columns:34% 1fr}
+ .product-photo{min-height:118px}
+ .section-head{margin-bottom:12px}
+}
+@media(max-width:700px){
+ html{scroll-padding-top:102px}
+ header{height:70px}.nav{height:70px}
+ .panel,footer{height:calc(100svh - 102px);min-height:500px;scroll-margin-top:102px}
+ .hero{grid-template-columns:1fr;grid-template-rows:1.05fr .95fr}
+ .hero-copy{padding:25px 6% 18px;justify-content:center}
+ .hero h1{font-size:clamp(46px,12vw,68px);margin:12px 0}
+ .hero p{font-size:11px;line-height:1.65;max-width:470px}
+ .hero-actions{margin-top:16px;gap:15px;flex-wrap:wrap}
+ .hero-image{min-height:0}
+ .image-note{bottom:12px;left:12px;padding:8px 10px;font-size:11px}
+ .intro{padding:22px 0;align-items:center}
+ .intro-grid{display:flex;flex-direction:column;justify-content:center;gap:12px}
+ .intro h2{font-size:clamp(34px,9vw,48px);margin:8px 0}
+ .intro p{font-size:12px;line-height:1.75}
+ .menu-panel{padding:16px 0}
+ .menu-panel .wrap{width:92%}
+ .section-head{display:block;margin-bottom:12px}
+ .section-head p{font-size:10px;line-height:1.5;margin-top:7px}
+ .heading{font-size:36px;margin:5px 0}
+ .filters{gap:5px;margin-bottom:10px}
+ .filter{padding:8px 10px;font-size:8px}
+ .products{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .product{display:block}
+ .product-photo{height:clamp(76px,15vh,125px);min-height:0}
+ .product-info{padding:9px}
+ .product h3{font-size:14px}
+ .price{font-size:9px}
+ .product p{font-size:9px;line-height:1.4;margin:5px 0 7px}
+ .add{font-size:7px;letter-spacing:.6px;padding:8px 4px}
+ .story-grid{display:grid;grid-template-columns:1fr;grid-template-rows:42% 58%}
+ .story-image{min-height:0}
+ .story-copy{padding:17px 7%;justify-content:center}
+ .story-copy h2{font-size:clamp(32px,8vw,46px);margin:9px 0}
+ .story-copy p{font-size:10px;line-height:1.6;margin:6px 0}
+ .story-copy .button{margin-top:9px;padding:12px 15px}
+ .quality-panel{padding:20px 0}
+ .quality-panel .heading{font-size:clamp(32px,8vw,44px)}
+ .quality-panel .values{grid-template-columns:1fr;gap:12px;margin-top:20px}
+ .value{padding-top:9px}
+ .value b{font-size:15px}
+ .value h3{font-size:16px;margin:4px 0}
+ .value p{font-size:9px;line-height:1.5}
+ .cta{padding:20px 0}
+ .cta h2{font-size:clamp(40px,10vw,58px);margin:14px 0}
+ .cta p{font-size:11px}
+ footer{padding:18px 0 12px}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:14px;padding-bottom:16px}
+ .footer-brand{grid-column:1/-1}
+ .footer-brand p{font-size:9px;margin:8px 0}
+ .footer-col h4{font-size:8px;margin:3px 0 7px}
+ .footer-col a,.footer-col p{font-size:9px;line-height:1.65}
+ .footer-bottom{font-size:7px;line-height:1.6;flex-direction:column;gap:5px;padding-top:10px}
+}
+@media(max-width:380px){
+ .nav-right .button{display:none}
+ .hero h1{font-size:45px}
+ .product h3{font-size:12px}
+ .product-info{padding:7px}
+ .add{font-size:6.5px}
+ .filter{padding:7px 8px}
+}
+@media(max-height:700px) and (min-width:701px){
+ .panel,footer{min-height:450px}
+ .hero h1{font-size:clamp(48px,6vw,70px);margin:12px 0}
+ .section{padding:18px 0}
+ .product-photo{min-height:95px}
+ .product-info{padding:9px}
+ .product p{margin:5px 0 7px}
+ .story-copy{padding:20px 35px}
+ .quality-panel .values{margin-top:18px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;scroll-snap-type:y proximity}*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+
+.section-rail{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:25;display:flex;flex-direction:column;gap:11px}
+.section-rail a{width:7px;height:7px;border:1px solid #819078;border-radius:50%;background:#f1f0e8;transition:.2s}
+.section-rail a.current{height:23px;border-radius:8px;background:var(--accent);border-color:var(--accent);box-shadow:0 0 12px #b8ed5577}
+@media(max-width:700px){.section-rail{right:8px;gap:8px}.section-rail a{width:6px;height:6px}.section-rail a.current{height:17px}}
+
+
+/* NOIR — vivid premium edition */
+body{background:#101014;color:#f7f3ec}
+.topline{background:#09090d;color:#ffd166}
+header{background:#101014ed;border-color:#ff5a1f55}
+.brand span{color:#c5bbb1}
+.links a{color:#d0c7bf}.links a:hover{color:#ff8a35}
+.cart-button{border-color:#ff5a1f;color:#fff}.cart-button strong{color:#ffd166}
+.button{background:linear-gradient(115deg,#ff5a1f,#ff8a35);border-color:#ff5a1f;color:#100d0c;box-shadow:0 8px 28px #ff5a1f35}
+.button:hover{background:linear-gradient(115deg,#ff8a35,#ffd166);border-color:#ffd166;color:#100d0c;box-shadow:0 0 30px #ff8a3566}
+.button.outline{background:transparent;color:#fff;border-color:#ffd166}.button.outline:hover{background:#ffd166;color:#111}
+.kicker{color:#ffd166}
+.panel{background-color:#101014}
+.hero{background:#101014;border-color:#ff5a1f55;position:relative;background-image:linear-gradient(90deg,#101014 0%,#101014e8 38%,#10101455 100%),url("https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1800&q=70");background-size:cover;background-position:center}
+.hero:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 72% 45%,#ff5a1f18,transparent 48%),linear-gradient(90deg,#101014 0%,transparent 65%)}
+.hero-copy{z-index:2}.hero h1{color:#fff}.hero h1 em{color:#ff6a2a;text-shadow:0 0 28px #ff5a1f77}
+.hero p,.intro p{color:#c1b8b1}
+.hero-image{background:#20130f}.hero-image img{filter:saturate(1.15) contrast(1.08);}
+.hero-image:after{border:2px solid #ff7a3b88;box-shadow:inset 0 0 55px #ff5a1f22}
+.image-note{background:#09090deF;color:#ffd166;border:1px solid #ff8a3588}
+.intro{background:linear-gradient(120deg,#17151a,#101014);border-color:#39343a}
+.intro:before,.menu-panel:before,.quality-panel:before{opacity:.16;background-image:linear-gradient(#ff8a3518 1px,transparent 1px),linear-gradient(90deg,#ff8a3518 1px,transparent 1px)}
+.intro h2,.heading{color:#fff}.section{background:#101014}
+.menu-panel{background:linear-gradient(135deg,#19151a,#101014)}
+.section-head p{color:#b9b0aa}.filter{color:#eee;border-color:#51434a;background:#17151a}
+.filter.active,.filter:hover{background:#ff5a1f;border-color:#ff5a1f;color:#120d0b}
+.product{background:#211c21;border:1px solid #49343a;box-shadow:0 10px 28px #0004}
+.product:hover{box-shadow:0 16px 38px #ff5a1f22;border-color:#ff8a35}
+.product-photo{background:#2b2221}.product-photo img{filter:saturate(1.12) contrast(1.06)}
+.product h3{color:#fff}.price{color:#ffd166}.product p{color:#c0b5ae}
+.add{border-color:#59454a;color:#fff}.add:hover{background:#ff5a1f;border-color:#ff5a1f;color:#100d0c}
+.story{background:#171117;color:#fff;background-image:linear-gradient(90deg,#171117e8,#171117c9),url("https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1600&q=68");background-size:cover;background-position:center}.story-image:after{border:2px solid #ff8a3566}.story-copy p{color:#c5b8b1}
+.story-copy .kicker{color:#ffd166}.story-copy .button{background:#ff5a1f;color:#100d0c;border-color:#ff5a1f}
+.quality-panel{background:linear-gradient(145deg,#18151a,#101014)}.value{border-color:#574047}.value b{color:#ff8a35}.value h3{color:#fff}.value p{color:#bfb4ad}
+.cta{background:radial-gradient(circle at 50% 45%,#512315 0%,#1a1116 43%,#09090d 78%)}
+.cta .kicker,.cta h2 em{color:#ffd166}.cta p{color:#d1c2b8}.cta .button{background:#ffd166;border-color:#ffd166;color:#17100c}.cta .button:hover{background:#fff0bd}
+footer{background:#0b0b10;color:#f7f3ec;border-top:1px solid #ff5a1f55}.footer-brand p,.footer-col a,.footer-col p{color:#b9b0aa}.footer-col h4{color:#ffd166}.footer-bottom{border-color:#39343a;color:#918780}
+.section-rail a{background:#101014;border-color:#ff8a35}.section-rail a.current{background:#ff5a1f;border-color:#ff5a1f;box-shadow:0 0 14px #ff5a1f99}
+.drawer{background:#17151a;color:#fff}.drawer-head{border-color:#49343a}.cart-row{border-color:#49343a}.cart-row button{color:#ff8a35}.cart-total{border-color:#49343a}.drawer .button{background:#ff5a1f;color:#100d0c}.toast{background:#ffd166;color:#17100c;border-color:#fff0bd;box-shadow:0 0 25px #ff5a1f55}
+/* Large background photography and legible overlays */
+.hero-image{isolation:isolate}.hero-image:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(0deg,#09090d55,transparent 45%),linear-gradient(90deg,#09090d22,transparent)}
+/* Extra useful information panel */
+.info-panel{display:flex;align-items:center;background:linear-gradient(135deg,#20141a,#101014);padding:35px 0}
+.info-grid{width:min(1200px,90%);margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;position:relative;z-index:1}
+.info-panel h2{font:500 clamp(36px,4.5vw,58px)/1.08 var(--serif);margin:14px 0;color:#fff}
+.info-panel p{font-size:12px;line-height:1.9;color:#c5b8b1;max-width:520px}
+.info-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.info-card{padding:20px;background:#ffffff0b;border:1px solid #ff8a354d;min-height:118px}
+.info-card b{display:block;color:#ffd166;font:500 24px var(--serif);margin-bottom:8px}
+.info-card span{font-size:10px;line-height:1.6;color:#d0c3bb}
+.info-panel .button{margin-top:12px}
+@media(max-width:700px){.info-grid{grid-template-columns:1fr;gap:18px}.info-cards{gap:8px}.info-card{padding:14px;min-height:100px}.hero:after{background:linear-gradient(90deg,#101014aa,transparent 100%)}}
+@media(max-width:420px){.hero h1{font-size:clamp(43px,13vw,58px)}.hero-actions{gap:12px;flex-wrap:wrap}.info-cards{grid-template-columns:1fr 1fr}.info-card b{font-size:20px}}
+/* Fast, stable image rendering */
+img{display:block;max-width:100%;background:#211c21}
+
+@media(prefers-reduced-motion:reduce){.topline:after{animation:none}}
+
+
+/* ===== NOIR PREMIUM POLISH — final responsive refinement ===== */
+:root{
+  --accent:#ff642d;
+  --accent-dark:#ff9a45;
+  --gold:#ffd166;
+  --night:#09090d;
+}
+html{scroll-snap-type:y proximity}
+.panel, footer{
+  height:auto;
+  min-height:0;
+  overflow:visible;
+  scroll-margin-top:82px;
+}
+header{background:rgba(12,12,16,.94);backdrop-filter:blur(18px);border-bottom:1px solid #ff642d55}
+.brand{color:#fff}
+.brand span{color:#c7bcb4}
+.hero{
+  min-height:690px;
+  background-image:linear-gradient(90deg,#101014 0%,#101014e8 38%,#10101438 100%),url("https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1800&q=85");
+  background-size:cover;background-position:center;
+}
+.hero-copy{padding-top:90px;padding-bottom:90px}
+.hero-image{min-height:620px}
+.hero-image img{object-position:center;filter:saturate(1.12) contrast(1.08)}
+.button,.cart-button,.add,.filter{
+  border-radius:999px;
+}
+.button{
+  min-height:50px;padding:15px 25px;gap:14px;
+  font-size:10px;letter-spacing:1.15px;
+  box-shadow:0 10px 28px #ff642d35;
+}
+.button:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 15px 35px #ff642d55}
+.button.outline{border:1px solid #ffd166;color:#fff}
+.cart-button{padding:12px 19px;border:1px solid #ff8a35;background:#ffffff08}
+.cart-button:hover{background:#ff642d;color:#100d0c}
+.add{
+  padding:12px 16px;border:1px solid #ff8a3566;
+  background:linear-gradient(110deg,#ff642d,#ff9a45);
+  color:#120d0a;font-weight:700;transition:.22s;
+}
+.add:hover{background:linear-gradient(110deg,#ffd166,#ff9a45);color:#120d0a;transform:translateY(-2px);box-shadow:0 8px 20px #ff642d35}
+.filter{padding:11px 18px}
+.product{border-radius:18px;overflow:hidden;transition:transform .28s,box-shadow .28s,border-color .28s}
+.product:hover{transform:translateY(-7px);box-shadow:0 18px 42px #0008;border-color:#ff8a35}
+.product-photo{overflow:hidden}
+.product-photo img{transition:transform .55s}
+.product:hover .product-photo img{transform:scale(1.07)}
+.product-info{padding:18px}
+.info-card{border-radius:16px;background:linear-gradient(145deg,#ffffff10,#ffffff04);backdrop-filter:blur(8px)}
+.story-grid{min-height:540px}
+.story-image img{min-height:100%;object-fit:cover}
+.story-copy .button{border-radius:999px}
+.cta .button{border-radius:999px}
+.drawer{border-radius:24px 0 0 24px}
+.drawer .button{border-radius:999px}
+.toast{border-radius:999px}
+.section-rail a{transition:all .2s}
+img{background:linear-gradient(135deg,#2b2221,#17151a)}
+/* Imagens que falhem não deixam um espaço vazio: a imagem alternativa é carregada via JS. */
+img[data-fallback]{min-height:100px}
+@media(max-width:850px){
+  .hero{min-height:600px}
+  .hero-copy{padding:70px 6%}
+  .hero-image{min-height:430px}
+  .story-grid{min-height:0}
+}
+@media(max-width:700px){
+  .panel,footer{height:auto;min-height:0;overflow:visible;scroll-margin-top:70px}
+  .hero{min-height:0;grid-template-columns:1fr;background-position:60% center}
+  .hero-copy{padding:72px 7% 48px}
+  .hero-image{min-height:340px}
+  .intro,.menu-panel,.quality-panel,.info-panel,.cta{padding-top:58px;padding-bottom:58px}
+  .products{grid-template-columns:1fr;gap:14px}
+  .product{display:grid;grid-template-columns:38% 1fr;min-height:160px}
+  .product-photo{height:100%;min-height:160px}
+  .product-info{padding:14px}
+  .product h3{font-size:18px}
+  .product p{font-size:10px;line-height:1.6}
+  .add{font-size:8px;padding:10px}
+  .story-grid{grid-template-columns:1fr;grid-template-rows:300px auto}
+  .story-copy{padding:42px 7%}
+  .quality-panel .values{grid-template-columns:1fr;gap:20px}
+  footer{padding:45px 0 22px}
+  .section-rail{display:none}
+}
+@media(max-width:420px){
+  .product{grid-template-columns:34% 1fr}
+  .product-photo{min-height:150px}
+  .product-info{padding:10px}
+  .product h3{font-size:15px}
+  .add{font-size:7px;letter-spacing:.3px}
+  .hero-actions{align-items:flex-start}
+}
+
+
+/* ===== RESPONSIVIDADE UNIVERSAL + FUNDO DINÂMICO ===== */
+html{
+  scroll-snap-type:y proximity;
+  scroll-padding-top:82px;
+  overflow-x:clip;
+}
+body{
+  width:100%;
+  max-width:100%;
+  overflow-x:clip;
+}
+img, video, iframe{max-width:100%}
+.wrap{width:min(1200px,92%);margin-inline:auto}
+header{height:auto;min-height:72px}
+.nav{height:auto;min-height:72px;gap:12px;flex-wrap:wrap}
+.nav-right{gap:10px}
+.links{gap:clamp(10px,2vw,28px)}
+.panel, footer{
+  height:auto!important;
+  min-height:0!important;
+  max-height:none!important;
+  overflow:visible!important;
+  scroll-snap-align:start;
+  scroll-snap-stop:normal;
+  scroll-margin-top:82px;
+}
+.hero{
+  min-height:clamp(560px, min(82vh, 780px), 780px);
+  height:auto;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#100d0c!important;
+  background-image:none!important;
+}
+.hero-slideshow{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  background:#171014;
+}
+.hero-slide{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0;
+  transition:opacity 1s ease-in-out;
+  filter:saturate(1.12) contrast(1.06);
+}
+.hero-slide.is-active{opacity:1}
+.hero:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,rgba(10,9,12,.96) 0%,rgba(10,9,12,.82) 42%,rgba(10,9,12,.28) 100%),
+    linear-gradient(0deg,rgba(10,9,12,.28),transparent 55%);
+}
+.hero-copy{position:relative;z-index:2;min-width:0;padding:clamp(48px,7vw,100px) clamp(22px,5vw,75px)}
+.hero-image{position:relative;z-index:2;min-width:0;min-height:clamp(350px,48vw,620px);overflow:hidden}
+.hero-image img{width:100%;height:100%;object-fit:cover}
+.intro,.menu-panel,.quality-panel,.info-panel,.cta{height:auto;min-height:0}
+.products{grid-template-columns:repeat(2,minmax(0,1fr))}
+.product{min-width:0}
+.product-photo img{width:100%;height:100%;object-fit:cover}
+.product-info,.product-meta{min-width:0}
+.product h3{overflow-wrap:anywhere}
+.button,.cart-button,.add,.filter{max-width:100%;white-space:normal;line-height:1.35}
+.story-grid{height:auto;min-height:0}
+.story-image{min-height:350px}
+.story-image img{width:100%;height:100%;object-fit:cover}
+.info-grid{width:min(1200px,92%)}
+footer{display:block}
+.footer-grid{grid-template-columns:1.4fr 1fr 1fr 1fr}
+.drawer{max-width:100%;padding:clamp(18px,4vw,28px)}
+@media(max-width:900px){
+  .links{gap:12px;font-size:9px}
+  .brand{font-size:23px}
+  .hero{min-height:600px}
+  .hero-copy{padding:55px 5%}
+  .hero-image{min-height:440px}
+  .products{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .product{grid-template-columns:1fr}
+  .product-photo{height:clamp(170px,24vw,250px);min-height:0}
+  .product-info{padding:16px}
+  .add{font-size:9px}
+  .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+  html{scroll-padding-top:70px}
+  header{min-height:66px}
+  .nav{min-height:66px;flex-wrap:nowrap}
+  .links{display:none}
+  .brand{font-size:22px;letter-spacing:4px}
+  .nav-right{margin-left:auto}
+  .nav-right>.button{display:none}
+  .cart-button{padding:10px 13px;font-size:9px}
+  .hero{
+    min-height:0;
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto;
+  }
+  .hero:after{
+    background:linear-gradient(90deg,rgba(10,9,12,.91),rgba(10,9,12,.56)),
+               linear-gradient(0deg,rgba(10,9,12,.32),transparent);
+  }
+  .hero-copy{padding:clamp(54px,12vw,82px) 7% 38px}
+  .hero h1{font-size:clamp(44px,11vw,68px);line-height:1.02;letter-spacing:-1.8px}
+  .hero p{font-size:13px;line-height:1.75;max-width:560px}
+  .hero-actions{gap:14px;flex-wrap:wrap}
+  .hero-image{min-height:clamp(250px,70vw,390px);height:auto}
+  .image-note{bottom:14px;left:14px}
+  .intro,.menu-panel,.quality-panel,.info-panel,.cta{padding:52px 0}
+  .intro-grid{grid-template-columns:1fr;gap:16px}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .products{grid-template-columns:1fr;gap:14px}
+  .product{display:grid;grid-template-columns:minmax(115px,38%) minmax(0,1fr)}
+  .product-photo{height:100%;min-height:165px}
+  .product-info{padding:13px}
+  .product h3{font-size:clamp(15px,4vw,19px)}
+  .product p{font-size:10px;line-height:1.55}
+  .add{font-size:8px;padding:10px 8px}
+  .story-grid{grid-template-columns:1fr;grid-template-rows:auto auto}
+  .story-image{height:clamp(240px,65vw,360px);min-height:0}
+  .story-copy{padding:38px 7%}
+  .values{grid-template-columns:1fr;gap:22px}
+  .info-grid{grid-template-columns:1fr;gap:22px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:22px}
+  .footer-brand{grid-column:1/-1}
+  .footer-bottom{flex-direction:column;line-height:1.7}
+  .section-rail{display:none}
+}
+@media(max-width:420px){
+  .topline{height:auto;min-height:28px;padding:7px 10px;text-align:center;font-size:7px;line-height:1.4}
+  .nav{width:92%}
+  .brand{font-size:19px;letter-spacing:3px}
+  .cart-button{font-size:8px;padding:9px 10px}
+  .hero-copy{padding-left:6%;padding-right:6%}
+  .hero h1{font-size:clamp(40px,12vw,53px)}
+  .hero-actions{align-items:stretch}
+  .hero-actions .button{width:100%}
+  .underlink{display:inline-block}
+  .product{grid-template-columns:34% minmax(0,1fr)}
+  .product-photo{min-height:145px}
+  .product-info{padding:10px}
+  .product-meta{flex-wrap:wrap;gap:3px}
+  .product h3{font-size:14px}
+  .price{font-size:9px}
+  .product p{font-size:9px;margin:6px 0 9px}
+  .add{font-size:7px;letter-spacing:.2px}
+  .info-cards{grid-template-columns:1fr 1fr}
+  .footer-grid{gap:16px}
+  .drawer{width:100%;border-radius:0}
+  .toast{left:12px;right:12px;bottom:12px;text-align:center}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-slide{transition:none}
+}
+
+</style>
+</head>
+<body>
+<div class="topline">NOIR BURGER &nbsp;·&nbsp; Feito com intenção, servido com sabor &nbsp;·&nbsp; Luanda</div>
+<header><div class="wrap nav">
+<a class="brand" href="#inicio">NOIR<span>BURGER ATELIER</span></a>
+<nav class="links"><a href="#menu">Menu</a><a href="#historia">A nossa história</a><a href="#qualidade">Qualidade</a><a href="#entrega">Entregas</a><a href="#contacto">Contacto</a></nav>
+<div class="nav-right"><button class="cart-button" id="openCart">Pedido <strong id="count">0</strong></button><a class="button" href="#menu">Ver menu ↗</a></div>
+</div></header>
+<nav class="section-rail" aria-label="Navegação por secções"><a href="#inicio" aria-label="Início" class="current"></a><a href="#historia" aria-label="Filosofia"></a><a href="#menu" aria-label="Menu"></a><a href="#qualidade" aria-label="Qualidade"></a><a href="#entrega" aria-label="Entregas"></a><a href="#contacto" aria-label="Contacto"></a></nav>
+<main>
+<section class="hero panel" id="inicio">
+<div class="hero-slideshow" aria-hidden="true">
+  <img class="hero-slide is-active" id="heroSlideA" src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1900&q=82" alt="">
+  <img class="hero-slide" id="heroSlideB" src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1900&q=82" alt="">
+</div>
+<div class="hero-copy"><div class="kicker">Hambúrgueres artesanais · Luanda</div><h1>Simples.<br><em>Extraordinário.</em></h1><p>O prazer de um bom hambúrguer está nos detalhes. Ingredientes selecionados, combinações equilibradas e preparação cuidada — sem complicações, sem excessos.</p><div class="hero-actions"><a class="button" href="#menu">Descobrir o menu <span>↗</span></a><a class="underlink" href="#historia">Conhecer a NOIR</a></div></div>
+<div class="hero-image"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1100&q=80" data-fallback="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1100&q=80" loading="eager" fetchpriority="high" decoding="async" alt="Hambúrguer artesanal NOIR"><div class="image-note">O essencial, feito excepcionalmente.</div></div>
+</section>
+<section class="intro panel" id="historia"><div class="wrap intro-grid"><div><div class="kicker">01 — A nossa filosofia</div><h2>Menos ruído.<br>Mais sabor.</h2></div><p>A NOIR nasceu de uma ideia simples: fazer hambúrgueres memoráveis, respeitando cada ingrediente e cada etapa da preparação. Acreditamos na qualidade acima da quantidade, no cuidado acima da pressa e nos pequenos detalhes que fazem toda a diferença.</p></div></section>
+<section class="section panel menu-panel" id="menu"><div class="wrap"><div class="section-head"><div><div class="kicker">02 — Escolhas da casa</div><h2 class="heading">O menu.</h2></div><p>Uma seleção curta e especial, pensada para agradar sem perder a personalidade.</p></div>
+<div class="filters"><button class="filter active" data-filter="all">Todos</button><button class="filter" data-filter="burger">Hambúrgueres</button><button class="filter" data-filter="chicken">Frango</button><button class="filter" data-filter="side">Acompanhamentos</button></div>
+<div class="products">
+<article class="product" data-category="burger"><div class="product-photo"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=760&q=80" data-fallback="https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=760&q=80" loading="lazy" decoding="async" alt="Noir Classic"></div><div class="product-info"><div class="product-meta"><h3>Noir Classic</h3><span class="price">4.500 Kz</span></div><p>Carne grelhada, cheddar, alface fresca e molho especial da casa.</p><button class="add" data-name="Noir Classic" data-price="4500">Adicionar ao pedido +</button></div></article>
+<article class="product" data-category="burger"><div class="product-photo"><img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=760&q=80" data-fallback="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=760&q=80" loading="lazy" decoding="async" alt="Double Noir"></div><div class="product-info"><div class="product-meta"><h3>Double Noir</h3><span class="price">6.000 Kz</span></div><p>Dois discos de carne, queijo derretido e cebola caramelizada.</p><button class="add" data-name="Double Noir" data-price="6000">Adicionar ao pedido +</button></div></article>
+<article class="product" data-category="chicken"><div class="product-photo"><img src="https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=760&q=80" data-fallback="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=760&q=80" loading="lazy" decoding="async" alt="Crispy Chicken"></div><div class="product-info"><div class="product-meta"><h3>Crispy Chicken</h3><span class="price">4.800 Kz</span></div><p>Frango crocante, salada fresca e maionese artesanal.</p><button class="add" data-name="Crispy Chicken" data-price="4800">Adicionar ao pedido +</button></div></article>
+<article class="product" data-category="burger"><div class="product-photo"><img src="https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=760&q=80" data-fallback="https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=760&q=80" loading="lazy" decoding="async" alt="Mushroom Melt"></div><div class="product-info"><div class="product-meta"><h3>Mushroom Melt</h3><span class="price">5.500 Kz</span></div><p>Carne suculenta, cogumelos salteados e queijo cremoso.</p><button class="add" data-name="Mushroom Melt" data-price="5500">Adicionar ao pedido +</button></div></article>
+<article class="product" data-category="side"><div class="product-photo"><img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=760&q=80" data-fallback="https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=760&q=80" loading="lazy" decoding="async" alt="Batatas da casa"></div><div class="product-info"><div class="product-meta"><h3>Batatas da Casa</h3><span class="price">2.000 Kz</span></div><p>Batatas douradas, tempero da casa e molho para acompanhar.</p><button class="add" data-name="Batatas da Casa" data-price="2000">Adicionar ao pedido +</button></div></article>
+<article class="product" data-category="side"><div class="product-photo"><img src="https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=760&q=80" data-fallback="https://images.unsplash.com/photo-1501446529957-6226bd447c46?auto=format&fit=crop&w=760&q=80" loading="lazy" decoding="async" alt="Milkshake"></div><div class="product-info"><div class="product-meta"><h3>Milkshake</h3><span class="price">2.500 Kz</span></div><p>Cremoso, fresco e perfeito para fechar a experiência.</p><button class="add" data-name="Milkshake" data-price="2500">Adicionar ao pedido +</button></div></article>
+</div></div></section>
+<section class="story panel"><div class="story-grid"><div class="story-image"><img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1100&q=72" loading="lazy" decoding="async" alt="Hambúrguer preparado com ingredientes frescos"></div><div class="story-copy"><div class="kicker">03 — A experiência NOIR</div><h2>O sabor fala por si.</h2><p>Um ambiente acolhedor, um serviço atento e comida preparada com cuidado. Queremos que cada visita seja simples, descontraída e especial — da primeira dentada ao último detalhe.</p><a class="button" href="#contacto">Falar connosco ↗</a></div></div></section>
+<section class="section panel quality-panel" id="qualidade"><div class="wrap"><div class="kicker">04 — O que nos guia</div><h2 class="heading">A qualidade está<br>em cada detalhe.</h2><div class="values"><div class="value"><b>01</b><h3>Ingredientes frescos</h3><p>Escolhemos ingredientes que valorizam o sabor e a qualidade de cada receita.</p></div><div class="value"><b>02</b><h3>Feito no momento</h3><p>Preparamos cada pedido com atenção, consistência e respeito pelo produto.</p></div><div class="value"><b>03</b><h3>Receber bem</h3><p>Um bom hambúrguer merece ser acompanhado por uma boa experiência.</p></div></div></div></section>
+<section class="info-panel panel" id="entrega"><div class="info-grid"><div><div class="kicker">05 — Mais do que um hambúrguer</div><h2>O teu momento.<br>Do nosso jeito.</h2><p>Escolhe os teus favoritos, prepara o teu pedido e fala directamente connosco. A equipa NOIR está pronta para ajudar com pedidos, informações sobre entregas e ocasiões especiais.</p><a class="button" href="https://wa.me/244953130460?text=Olá%20NOIR!%20Quero%20saber%20mais%20sobre%20entregas." target="_blank" rel="noopener">Consultar entregas ↗</a></div><div class="info-cards"><div class="info-card"><b>01</b><span>Pedido simples pelo WhatsApp</span></div><div class="info-card"><b>02</b><span>Preparado na hora, com cuidado</span></div><div class="info-card"><b>03</b><span>Opções para partilhar e aproveitar</span></div><div class="info-card"><b>04</b><span>Atendimento próximo em Luanda</span></div></div></div></section>
+<section class="cta panel" id="contacto"><div class="wrap"><div class="kicker">A próxima boa refeição começa aqui</div><h2>Vamos tornar<br>o teu dia <em>mais saboroso.</em></h2><p>Pedidos, reservas e informações. Estamos a uma mensagem de distância.</p><a class="button" id="whatsapp" href="https://wa.me/244953130460?text=Olá%20NOIR!%20Gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener">Pedir pelo WhatsApp ↗</a></div></section>
+</main>
+<footer class="panel footer-panel"><div class="wrap"><div class="footer-grid"><div class="footer-brand"><a class="brand" href="#inicio">NOIR<span>BURGER ATELIER</span></a><p>Hambúrgueres artesanais feitos com intenção. Simplicidade, qualidade e sabor em cada detalhe.</p></div><div class="footer-col"><h4>Navegação</h4><a href="#menu">Menu</a><a href="#historia">A nossa história</a><a href="#qualidade">Qualidade</a></div><div class="footer-col"><h4>Contacto</h4><p>Luanda, Angola<br>+244 953 130 460<br>@noirburger</p></div><div class="footer-col"><h4>Horário</h4><p>Todos os dias<br>11h00 — 22h00<br><span style="color:#999487">Horário ilustrativo</span></p></div></div><div class="footer-bottom"><span>© 2026 NOIR Burger. Todos os direitos reservados.</span><span>Feito com cuidado · Luanda</span></div></div></footer>
+<div class="drawer-backdrop" id="backdrop"><aside class="drawer" aria-label="Resumo do pedido"><div class="drawer-head"><h3>O teu pedido</h3><button class="close" id="closeCart" aria-label="Fechar">×</button></div><div class="cart-items" id="items"><p style="font-size:12px;color:#77776e">Ainda não adicionaste produtos.</p></div><div class="cart-total"><span>Total</span><span id="total">0 Kz</span></div><button class="button" id="checkout">Enviar pedido pelo WhatsApp ↗</button></aside></div>
+<div class="toast" id="toast" role="status" aria-live="polite">Adicionado ao pedido</div>
+<script>
+
+const railLinks=[...document.querySelectorAll('.section-rail a')];
+const railTargets=['inicio','historia','menu','qualidade','entrega','contacto'].map(id=>document.getElementById(id));
+const railObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting && entry.intersectionRatio>.35){
+      railLinks.forEach(a=>a.classList.toggle('current',a.getAttribute('href')==='#'+entry.target.id));
+    }
+  });
+},{threshold:[.35,.6]});
+railTargets.forEach(target=>target&&railObserver.observe(target));
+
+const cart=[];const count=document.getElementById('count');const backdrop=document.getElementById('backdrop');const items=document.getElementById('items');const total=document.getElementById('total');const toast=document.getElementById('toast');let toastTimer;
+const money=n=>n.toLocaleString('pt-PT')+' Kz';
+function notify(msg){toast.textContent=msg;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2200)}
+function renderCart(){count.textContent=cart.reduce((s,x)=>s+x.qty,0);if(!cart.length){items.innerHTML='<p style="font-size:12px;color:#77776e">Ainda não adicionaste produtos.</p>'}else{items.innerHTML=cart.map((x,i)=>`<div class="cart-row"><span>${x.name} × ${x.qty}<br><small>${money(x.price*x.qty)}</small></span><span><button data-remove="${i}" aria-label="Remover ${x.name}">Remover</button></span></div>`).join('')}total.textContent=money(cart.reduce((s,x)=>s+x.price*x.qty,0))}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.product').forEach(p=>p.hidden=b.dataset.filter!=='all'&&p.dataset.category!==b.dataset.filter)}));
+document.querySelectorAll('.add').forEach(b=>b.addEventListener('click',()=>{const found=cart.find(x=>x.name===b.dataset.name);if(found)found.qty++;else cart.push({name:b.dataset.name,price:Number(b.dataset.price),qty:1});renderCart();notify(b.dataset.name+' adicionado')}));
+items.addEventListener('click',e=>{const b=e.target.closest('[data-remove]');if(b){cart.splice(Number(b.dataset.remove),1);renderCart()}});
+document.getElementById('openCart').addEventListener('click',()=>backdrop.classList.add('open'));document.getElementById('closeCart').addEventListener('click',()=>backdrop.classList.remove('open'));backdrop.addEventListener('click',e=>{if(e.target===backdrop)backdrop.classList.remove('open')});
+document.getElementById('checkout').addEventListener('click',()=>{if(!cart.length){notify('Adiciona primeiro um produto ao pedido.');return}const lines=cart.map(x=>`${x.name} x${x.qty} — ${money(x.price*x.qty)}`);const sum=cart.reduce((s,x)=>s+x.price*x.qty,0);const msg='Olá NOIR! Gostaria de fazer este pedido:\n'+lines.join('\n')+'\nTotal: '+money(sum);window.open('https://wa.me/244953130460?text='+encodeURIComponent(msg),'_blank','noopener');});
+
+// Fallback automático para imagens externas indisponíveis.
+document.querySelectorAll('img[data-fallback]').forEach(img=>{
+  img.addEventListener('error',()=>{
+    if(img.dataset.fallbackUsed) return;
+    img.dataset.fallbackUsed='1';
+    img.src=img.dataset.fallback;
+  },{once:true});
+});
+
+
+// Fundo fotográfico do destaque: muda automaticamente a cada 2 segundos.
+(() => {
+  const first = document.getElementById('heroSlideA');
+  const second = document.getElementById('heroSlideB');
+  if (!first || !second) return;
+
+  const photos = [
+    'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1900&q=82',
+    'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&w=1900&q=82',
+    'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1900&q=82',
+    'https://images.unsplash.com/photo-1553979459-d2229ba7433a?auto=format&fit=crop&w=1900&q=82',
+    'https://images.unsplash.com/photo-1606755962773-d324e0a13086?auto=format&fit=crop&w=1900&q=82',
+    'https://images.unsplash.com/photo-1630384060421-cb20d0e0649d?auto=format&fit=crop&w=1900&q=82'
+  ];
+  // Pré-carrega as fotografias para reduzir flashes ou intervalos vazios.
+  photos.forEach(url => { const preload = new Image(); preload.src = url; });
+
+  let index = 0;
+  let showingFirst = true;
+  window.setInterval(() => {
+    index = (index + 1) % photos.length;
+    const incoming = showingFirst ? second : first;
+    const outgoing = showingFirst ? first : second;
+    incoming.src = photos[index];
+    incoming.classList.add('is-active');
+    outgoing.classList.remove('is-active');
+    showingFirst = !showingFirst;
+  }, 2000);
+})();
+
+</script>
+</body>
+</html>
